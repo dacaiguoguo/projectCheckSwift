@@ -14,6 +14,7 @@ extension String {
     }
 }
 
+print(Process.arguments)
 let fileDictoryPath = "/Users/sunyanguo/Documents/work/lvmama_iphone7.5.007"
 let url = NSURL(fileURLWithPath:fileDictoryPath);
 let manager = NSFileManager.defaultManager()
@@ -72,13 +73,9 @@ do {
     })
     for (index, value) in filteredHmArray!.enumerate() {
         let fileContent = try String(contentsOfURL: (value as! NSURL))
-        if let range = fileContent.rangeOfString("Margin") {
-            let fileName = value.lastPathComponent
-            print("Margin check：\(fileName)")
-        }
         if let range = fileContent.rangeOfString("#warning by") {
             let fileName = value.lastPathComponent
-            print("firstBaseline check：\(fileName)")
+            print("warning by check：\(fileName)")
         }
         
     }
